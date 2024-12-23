@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обработка изображения</title>
+</head>
+<body>
+    <h1>Изображение загружено: {{ filename }}</h1>
+    <p>Нажмите кнопку ниже, чтобы применить фильтр увеличения резкости:</p>
+    <form action="{{ url_for('apply_filter', filename=filename) }}">
+        <button type="submit">Увеличение резкости</button>
+    </form>
+<br>
+ <form action="{{ url_for('erosion_image', filename=filename) }}">
+        <button type="submit">Морфологическая обработка, операция эрозии</button>
+    </form>
+<br>
+ <form action="{{ url_for('dilation_image', filename=filename) }}">
+        <button type="submit">Морфологическая обработка, операция дилатации</button>
+    </form>
+<br>
+ <form action="{{ url_for('opening_image', filename=filename) }}">
+        <button type="submit">Морфологическая обработка, операция размыкания</button>
+    </form>
+    <br>
+<form action="{{ url_for('closing_image', filename=filename) }}">
+        <button type="submit">Морфологическая обработка, операция замыкания</button>
+    </form>
+</body>
+</html>
